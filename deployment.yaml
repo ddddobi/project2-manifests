@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app
+  namespace: django-project  # ArgoCD App설정과 맞추기 위해 django-project로 통일 권장
+spec:
+  selector:
+    matchLabels:
+      app: django-app
+  template:
+    metadata:
+      labels:
+        app: django-app
+    spec:
+      containers:
+        - name: django
+          image: dohyeon0213/django-app:v1.0.1 # [변경됨] 사용자님 이미지
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+  - service.yaml
+  - route.yaml     # ingress.yaml 대신 route.yaml 사용
+  - hpa.yaml
+
+# 만약 태그를 여기서 관리하고 싶다면 아래 주석을 풀고 사용하세요.
+# images:
+#   - name: dohyeon0213/django-app
+#     newTag: v1.0.1
