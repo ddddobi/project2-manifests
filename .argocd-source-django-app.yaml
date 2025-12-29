@@ -1,3 +1,0 @@
-kustomize:
-  images:
-  - dohyeon0213/django-app:v1.0.6
